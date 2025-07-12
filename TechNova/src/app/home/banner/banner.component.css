@@ -1,0 +1,68 @@
+section {
+    height: 550px;
+    background-image: url("/Home.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 60px;
+    color: #111827;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.infos {
+    max-width: 520px;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 36px 42px;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    color: #111827;
+}
+
+.infos h1 {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.infos h1::first-line {
+    color: #970747; /* dark pink */
+}
+
+.infos p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.infos button {
+    padding: 12px 36px;
+    border-radius: 6px;
+    border: none;
+    background-color: #970747; /* dark pink */
+    color: white;
+    font-family: "Exo", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.infos button:hover {
+    background-color: #7b043b; /* slightly darker pink */
+    box-shadow: 0 8px 16px rgba(151, 7, 71, 0.3);
+    transform: translateY(-2px);
+}
