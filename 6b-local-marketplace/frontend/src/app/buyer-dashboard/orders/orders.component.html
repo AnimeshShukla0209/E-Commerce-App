@@ -1,0 +1,27 @@
+<a class="back-button" routerLink="/buyer-dashboard">← Back to Home</a>
+<div class="orders-container">
+  <h2>My Orders</h2>
+  
+  <div *ngIf="orders.length === 0">You have no orders yet.</div>
+
+  <div class="order-card" *ngFor="let order of orders">
+    <img [src]="order.productId?.imageUrl ? 'http://localhost:5000' + order.productId.imageUrl : 'assets/defaultProdImage.png'" alt="Product Image">
+    <div class="details">
+      <h3>{{ order.productId?.name }}</h3>
+      <p>Price: ₹{{ order.productId?.price }}</p>
+      <p>Quantity: {{ order.quantity }}</p>
+      <p>Total: ₹{{ order.quantity * order.productId?.price }}</p>
+      <p><strong>Payment Method: </strong>{{ order.paymentMethod?.toUpperCase() }}</p>
+      <p><strong>Payment Status: </strong>{{ order.paymentStatus?.toUpperCase() }}</p>
+      <!-- Update the delivery status display in orders.component.html -->
+      <p><strong>Delivery Status: </strong>{{ (order.deliveryStatus === 'out_for_delivery' ? 'Out for Delivery' : order.deliveryStatus)?.toUpperCase() || 'PENDING' }}</p>
+      <p><strong>Status: </strong>{{ order.status?.toUpperCase()|| 'PENDING'}}</p>
+      <button class="main-btn main-btn-outline"
+              *ngIf="order.paymentStatus !== 'cancelled' && order.paymentStatus !== 'refunded' && order.deliveryStatus === 'pending'"
+              (click)="cancelOrder(order._id)">
+        Cancel
+      </button>
+      <button class="main-btn main-btn-outline" (click)="trackOrder(order)">Track Order</button>
+    </div>
+  </div>
+</div>

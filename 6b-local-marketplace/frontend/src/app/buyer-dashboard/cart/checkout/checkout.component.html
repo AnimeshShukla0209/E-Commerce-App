@@ -1,0 +1,46 @@
+<a class="back-button" routerLink="/cart">← Back to Cart</a>
+
+<div class="checkout-page">
+  <h2>Checkout</h2>
+
+  <div *ngIf="cartItems.length === 0" class="empty-message">
+    Your cart is empty. Please add some items before checkout.
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="items-list">
+    <div *ngFor="let item of cartItems" class="checkout-item">
+      <p>
+        <strong>{{ item.productId.name }}</strong><br />
+        Price: ₹{{ item.productId.price }}<br />
+        Quantity: {{ item.quantity || 1 }}
+      </p>
+    </div>
+
+    <div class="summary">
+      <p>Total Items: {{ totalItems }}</p>
+      <p><strong>Total Amount: ₹{{ totalAmount }}</strong></p>
+    </div>
+
+    <div class="payment-methods">
+      <label>
+        <input type="radio" name="paymentMethod" [(ngModel)]="paymentMethod" value="online" />
+        Online Payment
+      </label>
+      <label>
+        <input type="radio" name="paymentMethod" [(ngModel)]="paymentMethod" value="cod" />
+        Cash on Delivery
+      </label>
+    </div>
+
+    <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>
+      Your cart is empty. Add items from the
+      <a routerLink="/buyer-dashboard">dashboard</a>.
+    </p>
+  </ng-template>
+</div>
+
+<router-outlet></router-outlet>

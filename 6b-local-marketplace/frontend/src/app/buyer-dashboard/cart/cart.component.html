@@ -1,0 +1,26 @@
+<button class="back-button" (click)="routeToBuyerDashboard()">← Back to Buyer Dashboard</button>
+
+<div class="cart-container">
+  <h2>Your Cart</h2>
+
+  <div *ngIf="cartItems.length === 0" class="empty-message">
+    Your cart is empty.
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="cart-items">
+    <div *ngFor="let item of cartItems; let i = index" class="cart-item">
+      <img [src]="item.imageUrl" alt="{{ item.productId.name }}" (error)="onImgError($event)" class="product-image" />
+      <div class="item-details">
+        <h3>{{ item.productId.name }}</h3>
+        <p class="price">Price: ${{ item.productId.price }}</p>
+        <p class="quantity">Quantity: {{ item.quantity }}</p>
+        <button (click)="removeItem(i)" class="remove-btn">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Total: ${{ getTotal() }}</h3>
+      <button (click)="checkout()" class="checkout-btn">Checkout</button>
+    </div>
+  </div>
+</div>

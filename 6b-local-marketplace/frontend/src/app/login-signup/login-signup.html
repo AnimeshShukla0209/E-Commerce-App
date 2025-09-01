@@ -1,0 +1,68 @@
+<div class="login-signup-container">
+
+  <div class="form-section">
+    <div class="logo-title">
+      <div class="logo"></div>
+      <h2>Local Ease</h2>
+    </div>
+    <h3>Welcome to your local marketplace</h3>
+    <p class="subtitle">Connect with local vendors and find fresh products</p>
+
+    <!-- Tabs -->
+    <div class="tab-switch">
+      <button [class.active]="activeTab === 'signin'" (click)="setTab('signin')">Sign In</button>
+      <button [class.active]="activeTab === 'signup'" (click)="setTab('signup')">Sign Up</button>
+    </div>
+
+    <!-- Role Selection -->
+    <div class="role-switch">
+      <button [class.selected]="selectedRole === 'buyer'" (click)="setRole('buyer')">Buyer</button>
+      <button [class.selected]="selectedRole === 'vendor'" (click)="setRole('vendor')">Vendor</button>
+      <!-- Admin only for Sign In -->
+      <button *ngIf="activeTab === 'signin'" [class.selected]="selectedRole === 'admin'" (click)="setRole('admin')">Admin</button>
+    </div>
+
+    <!-- Form -->
+    <form (ngSubmit)="handleSubmit()">
+
+      <!-- Full Name (only in signup) -->
+      <div *ngIf="activeTab == 'signup'" class="input-group">
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter Your Full Name" [(ngModel)]="name" name="name" required />
+      </div>
+
+      <!-- Email -->
+      <div class="input-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="your@email.com" [(ngModel)]="email" name="email" required />
+      </div>
+
+      <!-- Mobile Number (only in signup) -->
+      <div *ngIf="activeTab == 'signup'" class="input-group">
+        <label>Mobile Number</label>
+        <input type="number" placeholder="Enter Your Mobile Number" [(ngModel)]="number" name="number" required />
+      </div>
+
+      <!-- Password -->
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="********" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <!-- Confirm Password (only in signup) -->
+      <div *ngIf="activeTab == 'signup'" class="input-group">
+        <label>Confirm Password</label>
+        <input type="password" placeholder="Confirm password" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </div>
+
+      <!-- Submit Button -->
+      <button class="main-btn" type="submit">{{ activeTab === 'signin' ? 'Sign In' : 'Sign Up' }}</button>
+    </form>
+
+    <!-- Terms -->
+    <div class="terms-row">
+      <span *ngIf="activeTab == 'signin'">By signing in, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+      <span *ngIf="activeTab == 'signup'">By signing up, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+    </div>
+  </div>
+</div>

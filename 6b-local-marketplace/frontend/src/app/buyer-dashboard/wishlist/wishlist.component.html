@@ -1,0 +1,24 @@
+<button class="back-button" (click)="routeToBuyerDashboard()">← Back to Buyer Dashboard</button>
+<div class="wishlist-container">
+  <h2>Your Wishlist</h2>
+
+  <div *ngIf="wishlistItems.length === 0" class="empty-message">
+    Your wishlist is empty.
+  </div>
+
+  <div *ngIf="wishlistItems.length > 0" class="wishlist-items">
+    <div *ngFor="let item of wishlistItems; let i = index" class="wishlist-item">
+      <img
+        [src]="item.imageUrl"
+        alt="{{ item.productId.name }}"
+        (error)="onImgError($event)"
+        class="item-image"
+      />
+      <div class="item-details">
+        <h3>{{ item.productId.name }}</h3>
+        <p class="price">Price: ${{ item.productId.price }}</p>
+        <button (click)="removeItem(i)" class="remove-btn">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>

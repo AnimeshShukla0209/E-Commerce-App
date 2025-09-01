@@ -1,0 +1,35 @@
+<div class="tracking-container">
+  <button class="back-btn" (click)="goBack()">← Back to Orders</button>
+
+  <h2>Track Your Order</h2>
+  <p class="subtitle">Real-time updates on your delivery status</p>
+
+  <div id="map" style="height: 300px; width: 100%; margin-bottom: 20px;"></div>
+
+  <div class="order-details">
+    <h3>Order #{{ order._id }}</h3>
+    <p class="status">
+      <span 
+        class="dot" 
+        [ngClass]="{
+          'completed': order.deliveryStatus === 'delivered',
+          'active': order.deliveryStatus !== 'delivered' && order.deliveryStatus !== 'cancelled',
+          'cancelled': order.deliveryStatus === 'cancelled'
+        }"></span> 
+      {{ order.deliveryStatus === 'delivered' ? 'Delivered' : order.deliveryStatus === 'cancelled' ? 'Cancelled' : 'In Progress' }}
+    </p>
+  </div>
+
+  <div class="delivery-progress">
+    <div *ngFor="let step of getDeliverySteps(); let i = index" class="progress-item">
+      <div class="progress-step" [ngClass]="step.status">
+        <div class="circle"></div>
+        <div class="content">
+          <h4>{{ step.title }}</h4>
+          <!-- <p>{{ step.time ? (step.time | date:'short') : 'Pending' }}</p> -->
+        </div>
+      </div>
+      <div *ngIf="i < getDeliverySteps().length - 1" class="progress-line" [ngClass]="step.status"></div>
+    </div>
+  </div>
+</div>

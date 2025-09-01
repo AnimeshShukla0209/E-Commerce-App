@@ -1,0 +1,48 @@
+<div class="profile-container" *ngIf="!loading">
+  <h2>My Profile</h2>
+
+    <div class="profile-details">
+      <label>Full Name</label>
+      <input 
+        type="text" 
+        [(ngModel)]="profile.name" 
+        placeholder="Enter your name"
+        [disabled]="!editMode"
+      />
+
+      <label>Email</label>
+      <input 
+        type="email" 
+        [(ngModel)]="profile.email" 
+        placeholder="Enter your email" 
+        disabled
+      />
+
+      <label>Phone Number</label>
+        <input 
+    type="tel" 
+    [(ngModel)]="profile.mobile" 
+    placeholder="Enter your phone number"
+    disabled
+  />
+
+
+      <label>{{ addressLabel }}</label>
+<textarea 
+  [(ngModel)]="profile.address" 
+  [placeholder]="'Enter your ' + addressLabel.toLowerCase()"
+  [disabled]="!editMode"
+></textarea>
+
+
+      <div class="profile-actions">
+        <button class="main-btn" *ngIf="!editMode" (click)="enableEdit()">Edit Profile</button>
+        <button class="main-btn" *ngIf="editMode" (click)="updateProfile()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+
+<div *ngIf="loading">
+  Loading profile...
+</div>

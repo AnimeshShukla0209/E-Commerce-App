@@ -1,0 +1,216 @@
+.login-signup-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f7f7;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-section {
+  flex: 0 0 42%;
+  max-width: 45%;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eaeaea;
+  height: 100vh;
+  border-radius: 16px 0 0 16px;
+  overflow: hidden;
+}
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px 0 0 16px;
+}
+
+.form-section {
+  flex: 1;
+  max-width: 420px;
+  min-width: 320px;
+  margin: auto;
+  background: #fff;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.logo span {
+  font-size: 2rem;
+}
+.form-section h2 {
+  color: #ff6b3d;
+  font-weight: 700;
+  margin: 0;
+}
+.form-section h3 {
+  margin: 0.5rem 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+.subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.tab-switch {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.tab-switch button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border 0.2s;
+}
+.tab-switch button.active {
+  color: #ff6b3d;
+  border-bottom: 2px solid #ff6b3d;
+}
+.role-switch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.role-switch button {
+  background: #f3f3f3;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  color: #888;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+.role-switch button.selected {
+  background: #ff6b3d;
+  color: #fff;
+}
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.input-group label {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.input-group input {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.input-group input:focus {
+  border: 1.5px solid #ff6b3d;
+}
+.forgot-signup-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1.2rem;
+}
+.forgot {
+  color: #ff6b3d;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.main-btn {
+  width: 100%;
+  background: #ff6b3d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.main-btn:hover {
+  background: #e65a2d;
+}
+.signup-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.98rem;
+}
+.signup-link {
+  color: #ff6b3d;
+  text-decoration: none;
+  font-weight: 600;
+}
+.terms-row {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+}
+.terms-row a {
+  color: #ff6b3d;
+  text-decoration: none;
+}
+@media (max-width: 900px) {
+  .login-signup-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .image-section {
+    height: 220px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px 16px 0 0;
+  }
+  .image-section img {
+    height: 220px;
+    border-radius: 16px 16px 0 0;
+  }
+  .form-section {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0 0 16px 16px;
+    box-shadow: none;
+    padding: 2rem 1rem 1.5rem 1rem;
+    height: auto;
+  }
+}
+@media (max-width: 600px) {
+  .form-section {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .image-section {
+    height: 140px;
+  }
+  .image-section img {
+    height: 140px;
+  }
+}

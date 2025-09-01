@@ -1,0 +1,161 @@
+<div class="landing-wrapper">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span class="logo">
+        <svg class="cart-icon" width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M7 18C6.44772 18 6 18.4477 6 19C6 19.5523 6.44772 20 7 20C7.55228 20 8 19.5523 8 19C8 18.4477 7.55228 18 7 18Z" fill="white"/>
+          <path d="M17 18C16.4477 18 16 18.4477 16 19C16 19.5523 16.4477 20 17 20C17.5523 20 18 19.5523 18 19C18 18.4477 17.5523 18 17 18Z" fill="white"/>
+          <path d="M3 4H5L6.68 15.39C6.7716 16.0282 7.31213 16.5 7.96 16.5H19.5C20.0523 16.5 20.5 16.0523 20.5 15.5C20.5 14.9477 20.0523 14.5 19.5 14.5H8.42L8.28 13.5H19.5C19.8978 13.5 20.2794 13.342 20.5607 13.0607C20.842 12.7794 21 12.3978 21 12V6.5C21 5.94772 20.5523 5.5 20 5.5H6.21L5.27 2.5H3V4Z" fill="white"/>
+        </svg>
+        Local Ease
+      </span>
+    </div>
+
+  
+
+    <div class="navbar-right">
+      <button class="nav-btn" routerLink="/login">Login</button>
+      <button class="nav-btn nav-btn-primary" [routerLink]="['/login']" [queryParams]="{ tab: 'signup' }">Register</button>
+    </div>
+  </nav>
+
+ <div class="landing-wrapper">
+
+  <!-- 🟠 Hero Section -->
+  <section class="hero">
+    <h1>Discover Local Treasures</h1>
+    <p>Support local vendors. Shop handmade, organic, and one-of-a-kind products.</p>
+  </section>
+
+<!-- Popular categories -->
+<section class="popular-categories">
+  <h2>Popular Categories</h2>
+  <div class="category-grid">
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1510552776732-03e61cf4b144?w=400" alt="Electronics">
+      <span>Electronics</span>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Clothing">
+      <span>Clothing</span>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400" alt="Home Decor">
+      <span>Home Decor</span>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1565286564554-14ff71615b16?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kitchen Essentials">
+      <span>Kitchen Essentials</span>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400" alt="Health, Beauty & Wellness">
+      <span>Health, Beauty & Wellness</span>
+    </div>
+    <div class="category-card">
+      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jewelry">
+      <span>Jewelry</span>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- 🔵 How It Works -->
+ <!-- How It Works -->
+<section class="how-it-works">
+  <h2>How Local Ease Works</h2>
+  <div class="steps-container">
+    <div class="step-card">
+      <h3>1. Browse</h3>
+      <p>Explore curated collections from verified local vendors.</p>
+    </div>
+    <div class="step-card">
+      <h3>2. Connect</h3>
+      <p>Chat directly with sellers for custom orders or questions.</p>
+    </div>
+    <div class="step-card">
+      <h3>3. Buy</h3>
+      <p>Seamless checkout. Safe payment. Local love delivered.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- 🟣 Our Vendors Offer (Fake Preview) -->
+  <section class="vendor-preview">
+    <h2>Top-Selling Products from Our Vendors</h2>
+    <div class="product-teaser">
+      <div class="product-card">
+        <img src="data:image/jpeg;base64,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" alt="Speakers" />
+        <h3>Speakers</h3>
+        
+      </div>
+      <div class="product-card">
+        <img src= "https://m.media-amazon.com/images/I/613y9Dx8o3L._UF1000,1000_QL80_.jpg " alt="Money Plant" />
+        <h3>Money Plant</h3>
+        
+      </div>
+      <div class="product-card">
+        <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRCEDTh-5K2DbNZe2yxCRk9TFRHm_Fkic_fD9wnSt6G2QEw6a-2zfoGIgc0t8IJCetsEQ2FWVc9E1MxVUIPsrZHv5ioAygUwIaXIxlnnSnljeH862n9CKMiXw"  alt="Wax Candles" />
+      <h3>Wax Candles</h3>
+       
+      </div>
+    </div>
+    <button class="main-btn" [routerLink]="['/login']" [queryParams]="{ tab: 'signup'}" >View More</button>
+    </section>
+  
+
+  <!-- 🟡 Call to Action -->
+  <section class="cta-section">
+    <h2>Ready to Join the Marketplace?</h2>
+    <p>Create your account and start supporting local businesses today.</p>
+    <button class="main-btn" [routerLink]="['/login']" [queryParams]="{ tab: 'signup'}">Sign Up Free</button>
+  </section>
+
+ 
+
+</div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h5>Local Ease</h5>
+        <p>Empowering communities through local commerce.</p>
+      </div>
+      <div class="footer-col">
+      <h5>Sell With Us</h5>
+<ul>
+  <li><a routerLink="/vendor-signup">Become a Vendor</a></li>
+  <li><a routerLink="/why-sell">Why Sell on Local Ease</a></li>
+  <li><a routerLink="/vendor-tools">Vendor Tools</a></li>
+</ul>
+</div>
+      <div class="footer-col">
+        <h5>Explore Local</h5>
+<ul>
+  <li><a routerLink="/vendors?region=near-me">Near You</a></li>
+  <li><a routerLink="/vendors/featured">Featured Vendors</a></li>
+  <li><a routerLink="/categories">Popular Categories</a></li>
+</ul>
+
+      </div>
+      <div class="footer-col">
+        <h5>Follow Us</h5>
+<ul class="social-links">
+  <li><a href="#">Instagram</a></li>
+  <li><a href="#">Facebook</a></li>
+  <li><a href="#">Twitter/X</a></li>
+  <li><a href="#">LinkedIn</a></li>
+</ul>
+
+      </div>
+     
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Local Ease. All rights reserved.</span>
+    </div>
+  </footer>
+</div>

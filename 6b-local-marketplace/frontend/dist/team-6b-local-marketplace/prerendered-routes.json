@@ -1,0 +1,16 @@
+{
+  "routes": {
+    "/": {},
+    "/buyer-dashboard": {},
+    "/cart": {},
+    "/checkout": {},
+    "/login": {},
+    "/orders": {},
+    "/profile": {},
+    "/refund": {},
+    "/track-order": {},
+    "/vendor-dashboard": {},
+    "/vendor-orders": {},
+    "/wishlist": {}
+  }
+}

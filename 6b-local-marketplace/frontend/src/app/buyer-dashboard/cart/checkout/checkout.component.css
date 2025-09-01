@@ -1,0 +1,123 @@
+.checkout-page {
+  max-width: 700px;
+  margin: 50px auto 70px auto;
+  background: #ffffff;
+  padding: 30px 30px 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  position: relative;
+}
+
+/* Back button styling */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #ff6600;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(255, 102, 0, 0.7);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.back-button:hover {
+  background-color: #e65c00;
+  transform: translateX(-3px);
+  box-shadow: 0 5px 15px rgba(230, 92, 0, 0.8);
+}
+
+/* Heading */
+.checkout-page h2 {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #ff6600;
+  letter-spacing: 0.06em;
+}
+
+/* Empty message */
+.empty-message {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #777;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* List of checkout items */
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checkout-item {
+  border-bottom: 1px solid #ffe0cc;
+  padding-bottom: 12px;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* Summary section */
+.summary {
+  margin-top: 25px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.summary p {
+  margin: 6px 0;
+}
+
+/* Payment methods */
+.payment-methods {
+  margin: 30px 0 25px 0;
+  font-size: 1.1rem;
+  color: #444;
+  display: flex;
+  gap: 40px;
+  user-select: none;
+}
+
+.payment-methods label {
+  cursor: pointer;
+}
+
+.payment-methods input[type="radio"] {
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/* Place order button */
+.place-order-btn {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 14px 38px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.place-order-btn:hover {
+  background-color: #e65c00;
+  box-shadow: 0 8px 24px rgba(230, 92, 0, 0.85);
+}

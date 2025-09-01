@@ -1,0 +1,24 @@
+{
+  "name": "6b-local-marketplace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"cd Backend && node server.js\" \"cd frontend && ng serve\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://cognizant-git.tekstac.com/DesalankaSiva.Sowmya/6b-local-marketplace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.0",
+    "vite": "^7.0.6"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.0.0"
+  }
+}

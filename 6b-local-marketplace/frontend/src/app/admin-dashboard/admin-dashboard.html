@@ -1,0 +1,65 @@
+<div class="admin-dashboard-wrapper">
+  <!-- Top Navbar (unchanged) -->
+  <nav class="dashboard-navbar">
+    <span class="logo">
+      <svg class="cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7 18C6.44772 18 6 18.4477 6 19C6 19.5523 6.44772 20 7 20C7.55228 20 8 19.5523 8 19C8 18.4477 7.55228 18 7 18Z" fill="white"/>
+        <path d="M17 18C16.4477 18 16 18.4477 16 19C16 19.5523 16.4477 20 17 20C17.5523 20 18 19.5523 18 19C18 18.4477 17.5523 18 17 18Z" fill="white"/>
+        <path d="M3 4H5L6.68 15.39C6.7716 16.0282 7.31213 16.5 7.96 16.5H19.5C20.0523 16.5 20.5 16.0523 20.5 15.5C20.5 14.9477 20.0523 14.5 19.5 14.5H8.42L8.28 13.5H19.5C19.8978 13.5 20.2794 13.342 20.5607 13.0607C20.842 12.7794 21 12.3978 21 12V6.5C21 5.94772 20.5523 5.5 20 5.5H6.21L5.27 2.5H3V4Z" fill="white"/>
+      </svg>
+      Local Ease
+    </span>
+    <input class="search-bar" type="text" placeholder="Search vendors, users, or orders..." />
+    <div class="navbar-actions">
+    <button class="nav-btn">Admin</button>
+    <button class="nav-btn logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  </nav>
+
+  <div class="dashboard-main">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li (click)="showBuyers()" [class.active]="activeTab==='buyers'">
+          <i class="fas fa-users"></i><span>User Management</span>
+        </li>
+        <li (click)="showVendors()" [class.active]="activeTab==='vendors'">
+          <i class="fas fa-store"></i><span>Vendor Management</span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <section class="dashboard-content">
+      <h2 *ngIf="activeTab==='buyers'">All Buyers</h2>
+      <h2 *ngIf="activeTab==='vendors'">All Vendors</h2>
+
+      <table *ngIf="filteredUsers.length > 0" border="1" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <!-- <th>Actions</th>  -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobile }}</td>
+            <td>{{ user.address || 'N/A' }}</td>
+            <!-- <td>
+              <button class="delete-btn" (click)="deleteUser(user._id)">Delete</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+
+
+      <p *ngIf="filteredUsers.length === 0">No data available.</p>
+    </section>
+  </div>
+</div>

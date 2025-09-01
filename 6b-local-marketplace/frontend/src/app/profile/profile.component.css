@@ -1,0 +1,67 @@
+.profile-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h2 {
+  text-align: center;
+  color: #ff6b3d;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 2px solid #ff6b3d;
+}
+
+.profile-details label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+  color: #333;
+}
+
+.profile-details input,
+.profile-details textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafafa;
+  resize: none;
+}
+
+.profile-details textarea {
+  height: 80px;
+}
+
+.main-btn {
+  background: #ff6b3d;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.main-btn:hover {
+  background: #e95d2e;
+}

@@ -1,0 +1,182 @@
+<div class="vendor-dashboard-wrapper">
+  <!-- Top Navbar -->
+  <nav class="dashboard-navbar">
+    <span class="logo">
+      <svg class="cart-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M7 18C6.44772 18 6 18.4477 6 19C6 19.5523 6.44772 20 7 20C7.55228 20 8 19.5523 8 19C8 18.4477 7.55228 18 7 18Z" fill="white"/>
+        <path d="M17 18C16.4477 18 16 18.4477 16 19C16 19.5523 16.4477 20 17 20C17.5523 20 18 19.5523 18 19C18 18.4477 17.5523 18 17 18Z" fill="white"/>
+        <path d="M3 4H5L6.68 15.39C6.7716 16.0282 7.31213 16.5 7.96 16.5H19.5C20.0523 16.5 20.5 16.0523 20.5 15.5C20.5 14.9477 20.0523 14.5 19.5 14.5H8.42L8.28 13.5H19.5C19.8978 13.5 20.2794 13.342 20.5607 13.0607C20.842 12.7794 21 12.3978 21 12V6.5C21 5.94772 20.5523 5.5 20 5.5H6.21L5.27 2.5H3V4Z" fill="white"/>
+      </svg>
+      Local Ease
+    </span>
+<div class="search-bar">
+  <select [(ngModel)]="searchFilter">
+    <option value="name">By Product Name</option>
+    <option value="area">By Area</option>
+  </select>
+
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    placeholder="Search by product or area"
+  />
+
+  <button (click)="searchVendorProducts()">Search</button>
+</div>
+    <div class="navbar-actions">
+      <span class="user-info">Welcome, {{ vendorName }}</span>
+      <button class="nav-btn nav-btn-primary">Admin Panel</button>
+      <button class="nav-btn">Order Tracking</button>
+    </div>
+    <div class="top-icons">
+
+
+    <!-- Wrap the vendor profile icon & dropdown -->
+    <div class="profile-wrapper">
+      <span class="material-icons icon" [class.active]="isDropdownOpen" (click)="toggleDropdown()">account_circle</span>
+      <div class="dropdown-menu" *ngIf="isDropdownOpen">
+          <a [routerLink]="['/profile']" [queryParams]="{ role: 'vendor' }">Profile</a>       
+          <a (click)="logout()">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  </nav>
+
+  <div class="dashboard-main">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li class="active">Dashboard</li>
+        <li (click)="fetchVendorProducts()">Product</li>
+        <li (click)="goToVendorOrders()" [class.active]="isVendorOrdersActive()">Orders</li>
+        <li (click)="goToRefundableOrders()">Returns & Refunds</li>
+        <li>Settings</li>
+         <li (click)="logout()">Logout</li>
+      </ul>
+    </aside>
+
+<!-- Action Buttons -->
+<div class="actions-row">
+  <button class="main-btn" (click)="showProductModal = true">Add New Product</button>
+  <button class="main-btn main-btn-outline" (click)="fetchVendorProducts()">See Products</button>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal-backdrop" *ngIf="showProductModal">
+  <div class="product-modal">
+    <form (ngSubmit)="submitProduct()" class="product-form">
+      <div class="modal-header">
+        <h3>Add Product</h3>
+        <button class="close-btn" type="button" (click)="resetForm()">&times;</button>
+      </div>
+
+      <label>Name:
+        <input type="text" [(ngModel)]="product.name" name="name" required />
+      </label>
+
+      <label>Price:
+        <input type="number" [(ngModel)]="product.price" name="price" required />
+      </label>
+
+      <label>Stock:
+        <input type="number" [(ngModel)]="product.stock" name="stock" required />
+      </label>
+
+      <label>Category:</label>
+<select [(ngModel)]="product.category" name="category" required>
+  <option *ngFor="let cat of categories" [value]="cat.name">
+    {{ cat.name }}
+  </option>
+</select>
+
+      <label>Area:
+        <input type="text" [(ngModel)]="product.area" name="area" required />
+      </label>
+
+      <label>Upload Image:
+        <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+      </label>
+
+      <div *ngIf="imagePreview">
+        <p>Image Preview:</p>
+        <img [src]="imagePreview" height="100" />
+      </div>
+
+      <button type="submit" class="main-btn">Submit Product</button>
+    </form>
+  </div>
+</div>
+
+<!-- Edit Product Modal -->
+<div class="modal-backdrop" *ngIf="showEditModal">
+  <div class="product-modal">
+    <form (ngSubmit)="submitEditedProduct()" class="product-form">
+      <div class="modal-header">
+        <h3>Edit Product</h3>
+        <button class="close-btn" type="button" (click)="showEditModal = false">&times;</button>
+      </div>
+
+      <label>Name:
+        <input type="text" [(ngModel)]="editProductData.name" name="editName" required />
+      </label>
+
+      <label>Price:
+        <input type="number" [(ngModel)]="editProductData.price" name="editPrice" required />
+      </label>
+
+      <label>Stock:
+        <input type="number" [(ngModel)]="editProductData.stock" name="editStock" required />
+      </label>
+
+     <label>Category:</label>
+  <select [(ngModel)]="product.category" name="category" required>
+    <option *ngFor="let cat of categories" [value]="cat.name">{{ cat.name }}</option>
+  </select>
+
+
+
+      <label>Area:
+        <input type="text" [(ngModel)]="editProductData.area" name="editArea" required />
+      </label>
+
+      <label>Upload New Image (optional):
+        <input type="file" (change)="onImageSelected($event, true)" accept="image/*" />
+      </label>
+
+      <div *ngIf="editImagePreview">
+        <p>Current Image Preview:</p>
+        <img [src]="editImagePreview" height="100" />
+      </div>
+
+      <button type="submit" class="main-btn">Update Product</button>
+    </form>
+  </div>
+</div>
+
+<!-- Product List -->
+<div *ngIf="showProductList && vendorProducts.length > 0" class="product-list">
+  <h3>Your Products</h3>
+  <div class="dashboard-row product-list-row">
+    <div class="product-card" *ngFor="let product of vendorProducts">
+      <img [src]="'http://localhost:5000' + product.imageUrl" class="product-img" alt="{{ product.name }}" />
+      <div class="product-info">
+        <h4 class="info-data"><span class="product-info-first"></span>{{ product.name }}</h4>
+        <p class="info-data"><span class="product-info-first">Price : </span> ₹{{ product.price }}</p>
+        <p class="info-data"><span class="product-info-first">Stock:</span> {{ product.stock }}</p>
+        <p class="info-data"><span class="product-info-first">Category:</span> {{ product.category }}</p>
+        <p class="info-data"><span class="product-info-first">Area:</span> {{ product.area }}</p>
+
+        <button class="edit-btn-outline" (click)="openEditModal(product)">Edit</button>
+        <button class="delete-btn" (click)="deleteProduct(product._id)">Delete</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showProductList && vendorProducts.length === 0" class="no-products">
+  <p>No products found. Add your first product!</p>
+</div>
+<router-outlet></router-outlet>
+

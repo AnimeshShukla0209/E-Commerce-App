@@ -1,0 +1,292 @@
+/* Base Styles */
+.refund-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.refund-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #ffe0b2;
+  padding-bottom: 2rem;
+}
+
+.page-title {
+  color: #e65100;
+  font-size: 2.2rem;
+  margin: 1.5rem 0 0 0;
+  font-weight: 600;
+}
+
+/* Back Button */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fb8c00;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(251, 140, 0, 0.25);
+  font-size: 1.05rem;
+}
+
+.back-button:hover {
+  background-color: #e65100;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(251, 140, 0, 0.35);
+}
+
+.back-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(251, 140, 0, 0.25);
+}
+
+.back-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  margin-right: 10px;
+}
+
+/* Status Messages */
+.status-message {
+  padding: 1.75rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.15rem;
+  gap: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loading-state {
+  background-color: #fff3e0;
+  color: #e65100;
+}
+
+.error-state {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border-left: 5px solid #f44336;
+}
+
+.empty-state {
+  background-color: #fff8e1;
+  color: #ff8f00;
+  border-left: 5px solid #ffa000;
+}
+
+.spinner, .error-icon, .empty-icon {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
+}
+
+.spinner {
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+/* Refund Grid */
+.refund-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 2rem;
+}
+
+.refund-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #ffcc80;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.refund-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Product Display */
+.product-display {
+  display: flex;
+  padding: 2.5rem;
+  gap: 2rem;
+}
+
+.product-image-container {
+  flex-shrink: 0;
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  background-color: #fff8e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #ffe0b2;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.product-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-name {
+  margin: 0 0 1.25rem 0;
+  color: #333;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem 2rem;
+}
+
+.detail-label {
+  color: #5f6368;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 100px;
+}
+
+.detail-value {
+  color: #202124;
+  font-size: 1.05rem;
+  word-break: break-word;
+}
+
+.amount {
+  font-weight: 700;
+  color: #e65100;
+  font-size: 1.1rem;
+}
+
+/* Action Section */
+.action-section {
+  padding: 1.75rem 2.5rem;
+  background-color: #fff3e0;
+  border-top: 1px solid #ffcc80;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #fb8c00;
+  color: white;
+  border: none;
+  padding: 1rem 2.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  gap: 12px;
+  font-size: 1.1rem;
+}
+
+.action-button:hover:not(:disabled) {
+  background-color: #e65100;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.action-button:disabled {
+  background-color: #ffcc80;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .refund-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .refund-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .product-display {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .refund-container {
+    padding: 1.5rem;
+  }
+  
+  .product-display {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  
+  .product-image-container {
+    width: 100%;
+    height: 180px;
+  }
+  
+  .detail-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .detail-label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .back-button, .action-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .product-display {
+    padding: 1.5rem;
+  }
+  
+  .action-section {
+    padding: 1.5rem;
+  }
+}
